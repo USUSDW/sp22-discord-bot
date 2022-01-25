@@ -1,0 +1,3 @@
+# Resources
+All links used in the presentation will be present here.
+*   ...
