@@ -222,7 +222,7 @@ Just got a message from {message.author} at {message.created_at}, saying...
 *   This event will log received messages to the client's server's console
 *   We can add the following check at the start of the function to ensure we don't log any messages our bot sends
 ```py
-if message.author == client: return
+if message.author == client.user: return
 ```
 
 Now, we aim to make our bot process messages as commands. Let us design something that works like the following:
