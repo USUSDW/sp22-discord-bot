@@ -2,14 +2,14 @@
 
 ## Table Of Contents
 
-*   [Setting Up Our Project's Environment](#setting-up-our-projects-environment)
-    *   [Managing Dependencies With `requirements.txt`](#setting-up-our-projects-environment)
-*   [Virutal Environment](#virtual-environment)
-    *   [Virtual Environment Setup Commands](#virtual-environment-setup-commands)
-    *   [Inside the Virtual Environment](#inside-the-virutal-environment)
-*   [Choose A License](#choose-a-license)
-*   [Initial Setup of `main.py`](#initial-setup-of-mainpy)
-    *   [Neccessary Imports](#necessary-imports)
+*   [Setting Up Our Project](#setting-up-our-projects-environment)
+    *   [Managing Dependencies With `requirements.txt`](#managing-dependencies-with-requirementstxt)
+    *   [Virutal Environment](#virtual-environment)
+        *   [Virtual Environment Setup Commands](#virtual-environment-setup-commands)
+        *   [Inside the Virtual Environment](#inside-the-virutal-environment)
+    *   [Choose A License](#choose-a-license)
+*   [Setup Our Discord Client In `main.py`](#setup-our-discord-client-in-mainpy)
+    *   [Neccessary `import`s](#necessary-imports)
     *   [Discord's `Intents`](#discords-intents)
     *   [Client Object](#client-object)
 *   [Getting Your Discord API Token](#getting-your-discord-client-api-token)
@@ -25,11 +25,11 @@
     *   [`on_message` Event](#on_message-event)
 *   [Nextcord `commands.Bot` Client Subclass](#nextcord-commandsbot-client-subclass)
     *   [`commands.Bot` Default Help Command](#commandsbot-default-help-command)
-    *   [`on_message` Event With `commands.Bot` Class](#on-message-event-with-commandsbot-class)
+    *   [`on_message` Event With `commands.Bot` Class](#on_message-event-with-commandsbot-class)
 
 
-# Setting Up Our Project's Environment
-To first create a Discord bot, we must create an environment we can create this Discord bot in!
+# Setting Up Our Project
+To first create a Discord bot, we must set up our project and create an environment to create this Discord bot in!
 
 ## Managing Dependencies With **`requirements.txt`**
 A `requirements.txt` file is a file that contains a list of packages needed for a project. We will use pip to install these packages directly from this file, so long as it's formatted correctly. By convention, this file is called `requirements.txt`; it can be called whatever you'd like! 
@@ -193,8 +193,8 @@ This loads the token string from the environment running our Discord bot, adding
 
 # Discord Client Events
 
-## `on_ready`
-*   Register with `client.event` decorator!
+## `on_ready` Event
+*   Register with `client.event` decorator
 *   Must be an [`async`ronous function](https://docs.python.org/3/library/asyncio-task.html)
 ```py
 @client.event
@@ -204,7 +204,7 @@ async def on_ready():
 ```
 *   We print to the client's server's console information about our client as soon as the client has logged in and successfully connected to Discord
 
-## `on_message`
+## `on_message` Event
 *   Register with `client.event` decorator
 *   Must be an [`async`ronous function](https://docs.python.org/3/library/asyncio-task.html)
 ```py
