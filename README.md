@@ -2,7 +2,7 @@
 
 ## Table Of Contents
 
-*   [Setting Up Our Project](#setting-up-our-projects-environment)
+*   [Setting Up Our Project](#setting-up-our-project)
     *   [Managing Dependencies With `requirements.txt`](#managing-dependencies-with-requirementstxt)
     *   [Virutal Environment](#virtual-environment)
         *   [Virtual Environment Setup Commands](#virtual-environment-setup-commands)
