@@ -17,15 +17,15 @@
     *   [Invite the Bot to a Server](#invite-the-bot-to-a-server)
     *   [Copying the Bot's API Key](#copying-the-bots-api-key)
 *   [Connecting Your Discord Client](#connecting-your-discord-client)
-    *   [Protecting Your API Key](#connecting-your-discord-client)
-        *   [`.env` files](#connecting-your-discord-client)   
-        *   [Loading `.env` files with `python-dotenv`](#connecting-your-discord-client)
-*   [Discord Client Events](#connecting-your-discord-client)
-    *   [`on_ready`](#connecting-your-discord-client)
-    *   [`on_message`](#connecting-your-discord-client)
-*   [Discord `commands.Bot` Client Subclass](#connecting-your-discord-client)
-    *   [`commands.Bot` Default Help Command](#connecting-your-discord-client)
-    *   [`on_message` Event With `commands.Bot` class](#connecting-your-discord-client)
+    *   [Protecting Your API Key](#protecting-your-api-key)
+        *   [`.env` files](#env-files)   
+        *   [Loading `.env` files with `python-dotenv`](#loading-env-files-with-python-dotenv)
+*   [Discord Client Events](#discord-client-events)
+    *   [`on_ready` Event](#on-ready-event)
+    *   [`on_message` Event](#on_message-event)
+*   [Nextcord `commands.Bot` Client Subclass](#nextcord-commandsbot-client-subclass)
+    *   [`commands.Bot` Default Help Command](#commandsbot-default-help-command)
+    *   [`on_message` Event With `commands.Bot` Class](#on-message-event-with-commandsbot-class)
 
 
 # Setting Up Our Project's Environment
@@ -250,7 +250,7 @@ if message.content.startswith("$ "):
 
 There has to be a better way to define and add commands like this, right...?
 
-# Discord `commands.Bot` Client Subclass
+# Nextcord `commands.Bot` Client Subclass
 The commands.Bot class was designed for this exact command pattern we attempted above. It can easily be used to define a Discord bot command interface. The `commands.Bot` class is a subclass of the `Client` class, meaning it has *all* the functionalities of the `Client` class we were working with earlier, and more! The `commands.Bot` subclass overrides the `on_message` event to define functionality that processes commands sent to it. This subclass has many additional helpful attributes and methods defined on it.
 
 We can set the following attributes on a `commands.Bot` object.
@@ -321,9 +321,6 @@ async def members(ctx):
 ```
 
 At this point, we have a fully functioning Discord bot with numerous commands that can be interfaced with. 
-
-# LECTURER NOTES
-At this point, the code should match `main_bot.py`
 
 ## `commands.Bot` Default Help Command
 We can get information about the commands we have defined on our bot by sending the message `$ help`. We can ask for help information on specific commands with `$ help [command]`.
