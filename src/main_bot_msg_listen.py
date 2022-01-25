@@ -1,17 +1,18 @@
-import nextcord
-from nextcord.ext import commands
 import dotenv
 import os
+
+import nextcord
+from nextcord.ext import commands
 
 # Needed for us to tell Discord what information our bot will want to access
 myIntents = nextcord.Intents.default()
 # Specifically note that we want access to member information
 myIntents.members = True
 
-# Create a Client object, the actual connection to Discord
-bot = commands.Bot(command_prefix="$ ", intents=myIntents, description="Test Bot!")
+# A special subclass of Client, commands.Bot!
+bot = commands.Bot(command_prefix="$ ", desc="Test Bot!", intents=myIntents)
 
-### Defining client functionalities
+# Defining bot functionalities
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user} (ID: {bot.user.id})")
@@ -46,7 +47,7 @@ async def add(ctx, a: int, b: int):
 # This command is named 'doc', but can also be invoked with 'pin', 'document', and 'documentation' 
 @bot.command(name='doc', aliases=['pin', 'document', 'documentation'])
 async def doc(ctx):
-    """Pins the incredibly important message you just sent"""
+    """pins the incredibly important message you just sent"""
     await ctx.message.pin()
 
 @bot.command(aliases=['list_members'])
@@ -60,7 +61,24 @@ async def members(ctx):
         memberString += "\n" 
     await ctx.send(f"All members in {ctx.guild}:\n{memberString}")
 
-# Tell the client to actually connect to Discord using the API Token provided in ...
+#   The *wrong* way to add an on_message event to the bot class
+#       This will override the actual command interface functionality of the commands.Bot class
+#   @bot.event
+#   async def on_message(message):
+#       print(message.content)
+
+# Allows the following function to respond to the same event that triggers on_message
+#   I can attach my own on_message functionality without breaking the command.Bot functionality
+@bot.listen('on_message')
+async def my_on_message(message):
+    # Could log messages to external file here if desired
+    print(message.content)
+
+# The following concerns cleint startup; not needed to execute until the very end
+# This will load the `.env` file data as a system environment variable
 dotenv.load_dotenv()
+
+# Assign variable myToken to be the string in the 'token' environment variable; loaded in .env
 myToken = os.getenv("token")
+
 bot.run(myToken)

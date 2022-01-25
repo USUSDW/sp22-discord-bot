@@ -2,6 +2,7 @@
 
 ## Table Of Contents
 
+### Lecture Notes
 *   [Setting Up Our Project](#setting-up-our-project)
     *   [Managing Dependencies With `requirements.txt`](#managing-dependencies-with-requirementstxt)
     *   [Virutal Environment](#virtual-environment)
@@ -27,6 +28,24 @@
     *   [`commands.Bot` Default Help Command](#commandsbot-default-help-command)
     *   [`on_message` Event With `commands.Bot` Class](#on_message-event-with-commandsbot-class)
 
+### Repository
+*   [LICENSE.txt](License.txt)
+    *   The terms of using this project and what *you* can do with it
+*   [Authors](doc/Authors.md)
+    *   Those who contributed to this project
+*   [Resources](doc/Resources.md)
+    *   All external resources linked to in this project, including a bunch of Nextcord documentation
+*   [Source Code](src)
+    *   [`main.py`](src/main.py)
+        *   The **final state** of the project with our Discord command bot
+    *   [`main_client_initial.py`](src/main_client_initial.py)
+        *   The Discord client before adding the `dotenv` stuff (and the key)
+    *   [`main_client_dotenv.py`](src/main_client_dotenv.py)
+        *   The Discord client after adding using `dotenv` to source our API Token from the `.env` file
+    *   [`main_client_events.py`](src/main_client_events.py)
+        *   The Discord client after adding the `on_ready` and `on_message` events
+    *   [`main_bot_msg_listener.py`](src/main_client_msg_listener.py)
+        *   The Discord `commands.Bot` class from `main.py` 
 
 # Setting Up Our Project
 To first create a Discord bot, we must set up our project and create an environment to create this Discord bot in!
