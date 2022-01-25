@@ -82,7 +82,7 @@ A *virtual environment* is a copy of your python environment that is unique to t
 <hr/>
 
 ## Choose A License
-It's always a good idea to put a `LICENSE.txt` file in any publically available project. Various licenses exist for various purposes. This project chose to use the Apache 2.0 license. This can be found in [this repositories' `LICENSE.txt` file](LICENSE.txt).
+It's always a good idea to put a `LICENSE.txt` file in any publically available project. Various licenses exist for various purposes. This project chose to use the Apache 2.0 license. More information can be found on this license at [TLDR Legal](https://tldrlegal.com/license/apache-license-2.0-(apache-2.0)) and the [Apache 2.0 license official site](https://www.apache.org/licenses/LICENSE-2.0). [This repositories' license can be found in the `LICENSE.txt` file](LICENSE.txt).
 
 # Setup Our Discord Client In `main.py` 
 
